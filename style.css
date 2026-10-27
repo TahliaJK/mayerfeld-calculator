@@ -26,3 +26,76 @@ section {
   border-radius:12px;
   margin-bottom:24px;
 }
+
+/* Aspa: calculator display */
+.calculator-display {
+    max-width: 24rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-display label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+#display {
+    display: block;
+    min-height: 4rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid #94a3b8;
+    border-radius: 0.5rem;
+    background: #0b1120;
+    color: #f8fafc;
+    font-family: ui-monospace, monospace;
+    font-size: 2rem;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Aspa: number keypad */
+.number-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    min-width: 0;
+    max-width: 24rem;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid #94a3b8;
+    border-radius: 0.5rem;
+}
+
+.number-buttons legend {
+    padding: 0 0.3rem;
+    font-weight: 600;
+}
+
+.number-buttons button {
+    min-height: 3rem;
+    border: 1px solid #94a3b8;
+    border-radius: 0.4rem;
+    background: #f1f5f9;
+    color: #0b1120;
+    font: inherit;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.number-buttons button[data-digit="0"] {
+    grid-column: span 2;
+}
+
+.number-buttons button:hover:not(:disabled) {
+    background: #dbeafe;
+}
+
+.number-buttons button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.number-buttons button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
