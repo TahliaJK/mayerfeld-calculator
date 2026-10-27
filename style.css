@@ -106,3 +106,35 @@ section {
     opacity: 0.45;
     cursor: default;
 }
+
+
+
+/* Betim - Operator Buttons */
+
+.operator-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.operator-buttons button {
+    padding: 15px;
+    font-size: 20px;
+    background-color: #f1f5f9;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.operator-buttons button:hover {
+    background-color: #dbeafe;
+}
+
+.operator-buttons button.selected {
+    background-color: #dbeafe;
+}
+
+.operator-buttons button[data-action="equals"] {
+    background-color: #16a34a;
+}
