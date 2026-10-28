@@ -1,58 +1,66 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator | Mayerfeld JS2</title>
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator | Mayerfeld JS2</title>
-  <link rel="stylesheet" href="style.css" />
+    <script src="scripts/shared.js" defer></script>
+    <script src="scripts/input.js" defer></script>
+    <script src="scripts/operations.js" defer></script>
+    <script src="scripts/controls.js" defer></script>
+  </head>
 
-  <script src="scripts/shared.js" defer></script>
-  <script src="scripts/input.js" defer></script>
-  <script src="scripts/operations.js" defer></script>
-  <script src="scripts/controls.js" defer></script>
-</head>
+  <body>
+    <main class="calculator-page">
+      <h1>Calculator</h1>
 
-<body>
-  <main class="calculator-page">
-    <h1>Calculator</h1>
+      <!-- Aspa: calculator display -->
+      <div class="calculator-display">
+        <label for="display">Display</label>
+        <output id="display">0</output>
+      </div>
 
-    <!-- Aspa: calculator display -->
-    <div class="calculator-display">
-      <label for="display">Display</label>
-      <output id="display">0</output>
-    </div>
-
-    <div id="calculator-buttons">
-      <!-- Aspa: number and decimal buttons -->
-      <fieldset class="number-buttons">
-        <legend>Number keys</legend>
-
-        <button type="button" data-digit="7">7</button>
-        <button type="button" data-digit="8">8</button>
-        <button type="button" data-digit="9">9</button>
-
-        <button type="button" data-digit="4">4</button>
-        <button type="button" data-digit="5">5</button>
-        <button type="button" data-digit="6">6</button>
-
-        <button type="button" data-digit="1">1</button>
-        <button type="button" data-digit="2">2</button>
-        <button type="button" data-digit="3">3</button>
-
-        <button type="button" data-digit="0">0</button>
-        <button type="button" data-action="decimal">.</button>
-
+      <div id="calculator-buttons">
         <!-- Tahlia: clear and backspace buttons -->
-        <button type="button" data-action="clear" aria-label="Clear calculator">C</button>
+        <div class="correction-buttons">
+          <button
+            type="button"
+            data-action="clear"
+            aria-label="Clear calculator"
+          >
+            C
+          </button>
 
-        <button type="button" data-action="backspace" aria-label="Backspace">⌫</button>
-      </fieldset>
+          <button type="button" data-action="backspace" aria-label="Backspace">
+            ⌫
+          </button>
+        </div>
 
-      <!-- Betim: operator and equals buttons -->
-      <div class="operator-buttons"></div>
-    </div>
-  </main>
-</body>
+        <!-- Aspa: number and decimal buttons -->
+        <fieldset class="number-buttons">
+          <legend>Number keys</legend>
 
+          <button type="button" data-digit="7">7</button>
+          <button type="button" data-digit="8">8</button>
+          <button type="button" data-digit="9">9</button>
+
+          <button type="button" data-digit="4">4</button>
+          <button type="button" data-digit="5">5</button>
+          <button type="button" data-digit="6">6</button>
+
+          <button type="button" data-digit="1">1</button>
+          <button type="button" data-digit="2">2</button>
+          <button type="button" data-digit="3">3</button>
+
+          <button type="button" data-digit="0">0</button>
+          <button type="button" data-action="decimal">.</button>
+        </fieldset>
+
+        <!-- Betim: operator and equals buttons -->
+        <div class="operator-buttons"></div>
+      </div>
+    </main>
+  </body>
 </html>

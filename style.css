@@ -1,138 +1,164 @@
-/* Basic boilerplate for the css file, can be deleted later*/
-
+/* Base styles */
 body {
-    font-family: "Source Sans Pro", sans-serif;
-    margin: 0;
-    background: #f1f5f9;
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  background: #f1f5f9;
 }
 
 header,
 footer {
-    background: #0b1120;
-    color: #fff;
-    padding: 32px;
+  background: #0b1120;
+  color: #fff;
+  padding: 32px;
 }
 
 nav a {
-    color: #7dd3fc;
-    margin-right: 16px;
-    text-decoration: none;
+  color: #7dd3fc;
+  margin-right: 16px;
+  text-decoration: none;
 }
 
 main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 40px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px;
 }
 
 section {
-    background: #fff;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
 }
 
 /* Include padding and borders within component dimensions. */
+.calculator-display,
 #display,
 .number-buttons,
-.number-buttons button {
-    box-sizing: border-box;
+.operator-buttons,
+#calculator-buttons button {
+  box-sizing: border-box;
 }
 
-/* Aspa: calculator display */
-/* Tahlia: Fixed the */
+/* Calculator display */
 .calculator-display {
-    width: 100%;
-    max-width: 32rem;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 32rem;
+  margin-bottom: 1rem;
 }
 
 .calculator-display label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 #display {
-    display: block;
-    min-height: 4rem;
-    padding: 0.75rem 1rem;
-    border: 2px solid #94a3b8;
-    border-radius: 0.5rem;
-    background: #0b1120;
-    color: #f8fafc;
-    font-family: ui-monospace, monospace;
-    font-size: 2rem;
-    text-align: right;
-    overflow-wrap: anywhere;
-    box-sizing: border-box;
+  display: block;
+  min-height: 4rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #94a3b8;
+  border-radius: 0.5rem;
+  background: #0b1120;
+  color: #f8fafc;
+  font-family: ui-monospace, monospace;
+  font-size: 2rem;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
-/* Aspa: number keypad */
+/* Space between the number keypad and operators. */
+#calculator-buttons {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 32rem;
+}
+
+/* Number and correction keypad */
 .number-buttons {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 0.5rem;
-    min-width: 0;
-    width: 100%;
-    max-width: 32rem;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 1rem;
-    border: 1px solid #94a3b8;
-    border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #94a3b8;
+  border-radius: 0.5rem;
 }
 
 .number-buttons legend {
-    padding: 0 0.3rem;
-    font-weight: 600;
+  padding: 0 0.3rem;
+  font-weight: 600;
 }
 
+/* Shared styles for every calculator button */
+#calculator-buttons button {
+  min-height: 3rem;
+  border: 1px solid #94a3b8;
+  border-radius: 0.4rem;
+  background: #f1f5f9;
+  color: #0b1120;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+#calculator-buttons button:hover:not(:disabled) {
+  background: #dbeafe;
+}
+
+#calculator-buttons button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+#calculator-buttons button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Regular number and decimal buttons use two of six columns. */
 .number-buttons button {
-    min-height: 3rem;
-    border: 1px solid #94a3b8;
-    border-radius: 0.4rem;
-    background: #f1f5f9;
-    color: #0b1120;
-    font: inherit;
-    font-size: 1.25rem;
-    cursor: pointer;
+  grid-column: span 2;
 }
 
+/* Zero is twice as wide as a regular number button. */
 .number-buttons button[data-digit="0"] {
-    grid-column: span 2;
+  grid-column: span 4;
 }
 
-.number-buttons button:hover:not(:disabled) {
-    background: #dbeafe;
+/* Clear and Backspace share the first row. */
+.correction-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  min-width: 0;
 }
 
-.number-buttons button:focus-visible {
-    outline: 3px solid #2563eb;
-    outline-offset: 2px;
+/* Operator and equals buttons */
+.operator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  max-width: 32rem;
 }
 
-.number-buttons button:disabled {
-    opacity: 0.45;
-    cursor: default;
+#calculator-buttons button[data-operator].selected {
+  background: #bfdbfe;
+  border-color: #2563eb;
 }
 
-
-/* Tahlia: correction button layout */
-
-/* Make regular number and decimal buttons span two columns */
-.number-buttons button {
-    grid-column: span 2;
+#calculator-buttons button[data-action="equals"] {
+  grid-column: 1 / -1;
+  background: #166534;
+  color: #fff;
 }
 
-/* Make zero twice as wide as a regular button */
-.number-buttons button[data-digit="0"] {
-    grid-column: span 4;
-}
-
-/* Make Clear and Backspace share the entire bottom row */
-.number-buttons button[data-action="clear"],
-.number-buttons button[data-action="backspace"] {
-    grid-column: span 3;
+#calculator-buttons button[data-action="equals"]:hover:not(:disabled) {
+  background: #14532d;
 }
