@@ -52,8 +52,6 @@ function showCalculationError() {
     calculatorState.operator = null;
     calculatorState.phase = "error";
 
-    updateDisplay();
-    updateOperatorButtons();
 }
 
 
@@ -70,7 +68,6 @@ function selectOperator(operator) {
 
     if (calculatorState.phase === "operator") {
         calculatorState.operator = operator;
-        updateOperatorButtons();
         return;
     }
 
@@ -106,8 +103,7 @@ function selectOperator(operator) {
     calculatorState.operator = operator;
     calculatorState.phase = "operator";
 
-    updateDisplay();
-    updateOperatorButtons();
+    
 }
 
 
@@ -138,8 +134,7 @@ function calculate() {
     calculatorState.operator = null;
     calculatorState.phase = "result";
 
-    updateDisplay();
-    updateOperatorButtons();
+    
 }
 
 
