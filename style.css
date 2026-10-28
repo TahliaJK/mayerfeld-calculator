@@ -32,6 +32,7 @@ section {
 }
 
 /* Include padding and borders within component dimensions. */
+.calculator-display,
 #display,
 .number-buttons,
 .operator-buttons,
@@ -41,7 +42,8 @@ section {
 
 /* Calculator display */
 .calculator-display {
-  max-width: 24rem;
+  width: 100%;
+  max-width: 32rem;
   margin-bottom: 1rem;
 }
 
@@ -65,13 +67,14 @@ section {
   overflow-wrap: anywhere;
 }
 
-/* Number keypad */
+/* Number and correction keypad */
 .number-buttons {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.5rem;
   min-width: 0;
-  max-width: 24rem;
+  width: 100%;
+  max-width: 32rem;
   margin: 0;
   padding: 1rem;
   border: 1px solid #94a3b8;
@@ -109,9 +112,20 @@ section {
   cursor: default;
 }
 
-/* Zero takes up two number columns. */
-.number-buttons button[data-digit="0"] {
+/* Regular number and decimal buttons use two of six columns. */
+.number-buttons button {
   grid-column: span 2;
+}
+
+/* Zero is twice as wide as a regular number button. */
+.number-buttons button[data-digit="0"] {
+  grid-column: span 4;
+}
+
+/* Clear and Backspace share the bottom row equally. */
+.number-buttons button[data-action="clear"],
+.number-buttons button[data-action="backspace"] {
+  grid-column: span 3;
 }
 
 /* Operator and equals buttons */
@@ -120,7 +134,8 @@ section {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
   min-width: 0;
-  max-width: 24rem;
+  width: 100%;
+  max-width: 32rem;
 }
 
 #calculator-buttons button[data-operator].selected {
