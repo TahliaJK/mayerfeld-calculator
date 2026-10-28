@@ -1,15 +1,20 @@
+
 "use strict";
+
+// Refresh all parts of the calculator interface.
+function updateCalculatorUI() {
+    updateDisplay();
+    updateDecimalButton();
+    //updateOperatorButtons(); //Will add back when Betim pushesd his code
+}
+
 // 1. Clear the calculator
 function clearCalculator() {
     calculatorState.displayValue = "0";
     calculatorState.firstOperand = null;
     calculatorState.operator = null;
     calculatorState.phase = "entry";
-
-    updateDisplay();
-    updateDecimalButton();
 }
-
 
 // 2. Remove the last character
 function backspace() {
@@ -31,11 +36,7 @@ function backspace() {
             calculatorState.displayValue = "0";
         }
     }
-
-    updateDisplay();
-    updateDecimalButton();
 }
-
 
 // 3. Format a calculation result
 function formatResult(value) {
@@ -54,7 +55,6 @@ function formatResult(value) {
     return answer;
 }
 
-
 // 4. Handle keyboard input
 function handleCalculatorKey(event) {
     const key = event.key;
@@ -65,10 +65,8 @@ function handleCalculatorKey(event) {
     } else if (key === "." || key === ",") {
         inputDecimal();
     } else if (["+", "-", "*", "/"].includes(key)) {
-        // PROVISIONAL: confirm this function name with Betim.
         selectOperator(key);
     } else if (key === "Enter" || key === "=") {
-        // PROVISIONAL: confirm this function name with Betim.
         calculateResult();
     } else if (key === "Backspace") {
         backspace();
@@ -80,11 +78,9 @@ function handleCalculatorKey(event) {
 
     if (handled) {
         event.preventDefault();
-        updateDisplay();
-        updateDecimalButton();
+        updateCalculatorUI();
     }
 }
-
 
 // 5. Connect buttons and keyboard controls
 function setupCalculatorControls() {
@@ -114,25 +110,21 @@ function setupCalculatorControls() {
         } else if (button.dataset.action === "backspace") {
             backspace();
         } else if (button.dataset.operator !== undefined) {
-            // PROVISIONAL: confirm this function name with Betim.
             selectOperator(button.dataset.operator);
         } else if (button.dataset.action === "equals") {
-            // PROVISIONAL: confirm this function name with Betim.
             calculateResult();
         } else {
             return;
         }
 
-        updateDisplay();
-        updateDecimalButton();
+        updateCalculatorUI();
     });
 
     document.addEventListener("keydown", handleCalculatorKey);
 
-    updateDisplay();
-    updateDecimalButton();
+    // Initialise the display and button states.
+    updateCalculatorUI();
 }
-
 
 // Initialise the controls after the HTML has loaded.
 setupCalculatorControls();

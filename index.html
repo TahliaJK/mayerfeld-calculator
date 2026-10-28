@@ -60,10 +60,45 @@
 
       </div>
 
-      <!-- Tahlia: clear and backspace buttons -->
-      <div class="correction-buttons"></div>
-    </div>
-  </main>
-</body>
+      <div id="calculator-buttons">
+        <!-- Tahlia: clear and backspace buttons -->
+        <div class="correction-buttons">
+          <button
+            type="button"
+            data-action="clear"
+            aria-label="Clear calculator"
+          >
+            C
+          </button>
 
+          <button type="button" data-action="backspace" aria-label="Backspace">
+            ⌫
+          </button>
+        </div>
+
+        <!-- Aspa: number and decimal buttons -->
+        <fieldset class="number-buttons">
+          <legend>Number keys</legend>
+
+          <button type="button" data-digit="7">7</button>
+          <button type="button" data-digit="8">8</button>
+          <button type="button" data-digit="9">9</button>
+
+          <button type="button" data-digit="4">4</button>
+          <button type="button" data-digit="5">5</button>
+          <button type="button" data-digit="6">6</button>
+
+          <button type="button" data-digit="1">1</button>
+          <button type="button" data-digit="2">2</button>
+          <button type="button" data-digit="3">3</button>
+
+          <button type="button" data-digit="0">0</button>
+          <button type="button" data-action="decimal">.</button>
+        </fieldset>
+
+        <!-- Betim: operator and equals buttons -->
+        <div class="operator-buttons"></div>
+      </div>
+    </main>
+  </body>
 </html>
