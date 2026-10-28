@@ -26,7 +26,7 @@ function prepareNumberEntry() {
 };
 
 function inputDigit(digit) {
-    if (!/^[0-9]$/.test(digit)) {
+    if (typeof digit !== "string" || !/^[0-9]$/.test(digit)) {
         return;
     }
 

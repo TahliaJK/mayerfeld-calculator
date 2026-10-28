@@ -32,6 +32,13 @@ section {
     margin-bottom: 24px;
 }
 
+/* Include padding and borders within component dimensions. */
+#display,
+.number-buttons,
+.number-buttons button {
+    box-sizing: border-box;
+}
+
 /* Aspa: calculator display */
 /* Tahlia: Fixed the */
 .calculator-display {
