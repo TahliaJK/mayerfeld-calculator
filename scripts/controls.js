@@ -5,7 +5,7 @@
 function updateCalculatorUI() {
     updateDisplay();
     updateDecimalButton();
-    updateOperatorButtons();
+    //updateOperatorButtons(); //Will add back when Betim pushesd his code
 }
 
 // 1. Clear the calculator
