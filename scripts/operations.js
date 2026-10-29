@@ -47,7 +47,7 @@ function operate(operator, a, b) {
 // Displays an error and resets the pending operation.
 function showCalculationError() {
 
-    calculatorState.displayValue = "Nice try! Can't divide by zero!";
+    calculatorState.displayValue = "Nice try! \n Can't divide by zero!";
     calculatorState.firstOperand = null;
     calculatorState.operator = null;
     calculatorState.phase = "error";
