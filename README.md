@@ -1,109 +1,160 @@
-# Calculator Project
+# 🧮 Calculator: The Final Operation
 
-## Overview
+### Three developers. Four operators. One calculator that actually works.
 
-This project is a browser-based calculator developed using HTML, CSS, and JavaScript. It allows users to perform basic arithmetic calculations through an interactive interface, using either the calculator buttons or supported keyboard keys.
+*A collaborative JavaScript calculator built for the Mayerfeld Consulting AI-Assisted Frontend Developer Practicum (October 2026).*
 
-The team developed the project collaboratively, with each member responsible for a specific set of features. The code is separated into JavaScript files to make the project easier to organise, maintain, test, and integrate.
+> **CALCULATOR:** Ready for your next calculation.
+>
+> **USER:** What happens if I divide by zero?
+>
+> **CALCULATOR:** Let's not make this more complicated than it needs to be.
 
-## Features
+---
 
-- **Number and decimal input:** Enter whole numbers and decimal values.
-- **Basic arithmetic:** Perform addition, subtraction, multiplication, and division.
-- **Chained calculations:** Perform multiple operations consecutively, evaluating one pair of numbers at a time.
-- **Equals button:** Calculate and display the result of an operation.
-- **Clear button (C):** Reset the calculator and clear its stored values.
-- **Backspace button (⌫):** Remove the last character entered.
-- **Keyboard support:** Use supported keyboard keys to enter numbers and perform operations.
-- **Result formatting:** Display calculation results clearly and prevent long decimal answers from overflowing the display.
-- **Error handling:** Display a friendly error message for invalid calculations, including division by zero.
-- **Responsive layout:** Keep the calculator interface usable across different screen sizes.
+## 🎬 The challenge
 
-## Technologies Used
+Every developer eventually faces a problem that looks simple on the surface but becomes more complicated with every new requirement.
 
-- **HTML5** — Structures the calculator interface and buttons.
-- **CSS3** — Styles the calculator and provides responsive layouts.
-- **JavaScript** — Handles number input, arithmetic calculations, controls, and keyboard interactions.
-- **Git and GitHub** — Support version control, individual branches, code reviews, and collaboration.
+Our mission was to build a functional calculator using HTML, CSS, and JavaScript. What started with basic arithmetic grew into a more complete application, with decimal input, chained calculations, keyboard controls, result formatting, and error handling.
 
-## Project Structure
+The challenge wasn't just making the buttons work. It was making sure that every part of the calculator worked together correctly, that calculations produced the expected results, and that the interface remained easy to use.
+
+**Three developers. Three feature areas. One shared goal: make every calculation count.**
+
+## 🎮 Features
+
+| Feature | What it does |
+| --- | --- |
+| 🔢 Number input | Enter numbers from 0 to 9 using the calculator buttons. |
+| 🔹 Decimal input | Enter decimal numbers while preventing duplicate decimal points in a number. |
+| ➕ Basic arithmetic | Perform addition, subtraction, multiplication, and division. |
+| 🔗 Chained calculations | Continue calculations by using each result in the next operation. |
+| 🟰 Equals | Evaluate the current operation and display the answer. |
+| 🧹 Clear | Reset the display and stored calculation values. |
+| ⌫ Backspace | Remove the last entered character. |
+| ⌨️ Keyboard support | Use supported keys to enter numbers and perform operations. |
+| 📏 Result formatting | Keep long calculation results readable and prevent display overflow. |
+| ⚠️ Error handling | Handle invalid calculations, including division by zero, without crashing. |
+| 📱 Responsive layout | Keep the calculator usable across different screen sizes. |
+
+## 🧪 How to use the calculator
+
+1. Open `index.html` in a modern web browser.
+2. Enter a number using the on-screen buttons or supported keyboard keys.
+3. Select an arithmetic operator: addition, subtraction, multiplication, or division.
+4. Enter the next number.
+5. Press `=` or the supported Enter key to calculate the result.
+6. Continue with another operator to perform a chained calculation.
+7. Use `C` to clear the calculator or `⌫` to correct your input.
+
+### Controls and behaviour
+
+- **Mouse input:** Click the calculator buttons to enter numbers and perform calculations.
+- **Keyboard input:** Use supported number keys, decimal point, arithmetic operators, Enter, Backspace, and Escape.
+- **Decimal validation:** Only one decimal point is allowed per number.
+- **Chained operations:** Operations are evaluated one pair at a time. For example, `12 + 7 - 5 * 3 =` produces `42`.
+- **Division by zero:** The calculator displays a friendly error message rather than allowing an invalid result.
+- **Clear and backspace:** Clear resets the calculation, while backspace removes the last character during number entry.
+
+## 🛠️ Built with
+
+- **HTML5** — The structure of the calculator and its interactive elements.
+- **CSS3** — Calculator styling, button layouts, responsive design, and focus states.
+- **JavaScript (ES6+)** — Number input, arithmetic functions, shared state, event handling, and calculator controls.
+- **Git & GitHub** — Individual branches, pull requests, code reviews, and collaborative development.
+- **Browser Developer Tools** — Testing functionality and troubleshooting errors.
+
+## 🧠 What we practised
+
+- Writing reusable functions for arithmetic operations and user input.
+- Managing application state across multiple JavaScript files.
+- Using event listeners to connect buttons and keyboard input to calculator functions.
+- Manipulating the DOM to update the display.
+- Validating decimal input and handling invalid calculations.
+- Formatting numeric results to keep them readable.
+- Organising code into separate files with clear responsibilities.
+- Integrating independently developed features through agreed function names and shared state.
+- Collaborating through Git branches, pull requests, reviews, and merges.
+- Testing edge cases instead of relying only on successful calculations.
+
+## 👩‍💻 The team
+
+| Developer | Responsibility | Key contributions |
+| --- | --- | --- |
+| **Aspa Neraki** | Number input & display | Implemented digit and decimal input, managed display values, updated the display, handled error styling, and developed the related HTML and CSS. |
+| **Betim Bajrami** | Arithmetic operations & calculations | Implemented addition, subtraction, multiplication, division, operator selection, the `operate()` and `calculate()` functionality, chained calculations, error handling, and the related HTML and CSS. |
+| **Tahlia Kisten** | Calculator controls, formatting & responsive layout | Implemented clear and backspace functionality, keyboard support, result formatting, event-listener setup, interface integration, responsive keypad styling, and keyboard-focus states. |
+
+The project was developed collaboratively as part of the **Mayerfeld Consulting AI-Assisted Frontend Developer Practicum**. Each team member owned a defined set of features, tested their work, and helped integrate the individual components into a complete calculator.
+
+## 🗂️ Project structure
 
 ```text
 calculator/
-├── index.html
-├── styles.css
-├── shared.js
-├── input.js
-├── operations.js
-├── controls.js
-└── README.md
+├── index.html       # Calculator interface
+├── styles.css       # Styling and responsive layout
+├── shared.js        # Shared calculator state
+├── input.js         # Number input and display
+├── operations.js    # Arithmetic and calculation logic
+├── controls.js      # Controls, keyboard and integration
+└── README.md        # Project documentation
 ```
 
-### File Responsibilities
+### How the parts connect
 
-| File            | Purpose                                                                                                        |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| `index.html`    | Contains the calculator's HTML structure and interface elements.                                               |
-| `styles.css`    | Contains the calculator styling and responsive layout.                                                         |
-| `shared.js`     | Defines the shared calculator state used by the other JavaScript files.                                        |
-| `input.js`      | Handles number entry, decimal input, and updating the display.                                                 |
-| `operations.js` | Handles arithmetic functions, operator selection, and calculations.                                            |
-| `controls.js`   | Handles clear and backspace functionality, keyboard events, result formatting, and event-listener integration. |
+1. **Shared state:** `shared.js` defines the calculator's state, including the current display value, stored operand, operator, and calculation phase.
+2. **Number input:** `input.js` handles digits, decimal input, and display updates.
+3. **Arithmetic operations:** `operations.js` performs calculations, manages operator selection, and handles calculation errors.
+4. **Controls and integration:** `controls.js` connects button and keyboard events to the relevant functions, handles clearing and backspace, and formats results.
+5. **The interface:** `index.html` and `styles.css` provide the structure, styling, and responsive layout.
 
-## Team Contributions
+The JavaScript files are loaded in a specific order so that the shared state and feature functions are available when the controls are initialized.
 
-### Aspa — Number Input and Display
+## 🚀 Run locally
 
-- Implemented number input functionality for digits 0–9.
-- Implemented decimal input, allowing users to enter decimal numbers without entering multiple decimal points in the same number.
-- Managed the display value during number entry.
-- Implemented display updates and error styling.
-- Developed the HTML and CSS elements related to the number buttons and main display.
-- Tested number entry, decimal handling, and display behaviour.
-- Contributed to integrating the number input functionality with the rest of the calculator.
+Clone the repository:
 
-### Betim Bajrami — Arithmetic Operations and Calculations
+```bash
+git clone <your-repository-url>
+cd <your-repository-folder>
+```
 
-- Implemented the basic arithmetic functions: addition, subtraction, multiplication, and division.
-- Developed the `operate()` function to select and execute the appropriate arithmetic operation.
-- Implemented operator selection and the equals functionality.
-- Managed the first operand and selected operator during calculations.
-- Implemented chained calculations, evaluating one pair of numbers at a time.
-- Added error handling for invalid operations, including division by zero.
-- Developed the HTML and CSS elements related to the operator and equals buttons.
-- Tested arithmetic operations, operator changes, chained calculations, and calculation errors.
-- Contributed to integrating the arithmetic functionality with the number input and calculator controls.
+Then open `index.html` in a modern web browser.
 
-### Tahlia — Calculator Controls, Formatting, and Responsive Layout
+No build tools or package installation are required for the basic browser-based version.
 
-- Implemented the Clear (`C`) functionality to reset the calculator's display and stored calculation values.
-- Implemented Backspace (`⌫`) functionality to remove the last entered character.
-- Developed keyboard support for digits, decimals, operators, Enter/equals, Backspace, and Escape.
-- Implemented result formatting to limit displayed precision and prevent long answers from overflowing the display.
-- Connected the calculator buttons and keyboard events to the appropriate input and arithmetic functions.
-- Implemented the event-listener setup to ensure calculator controls are registered once.
-- Developed the HTML and CSS elements related to the clear and backspace buttons, page structure, and calculator layout.
-- Worked on responsive keypad styling and keyboard-focus states.
-- Tested calculator controls, keyboard interactions, clearing and backspacing, result formatting, and overall integration.
+## 🧪 Testing checklist
 
-## Collaboration and Development
+Before presenting the project, test the following:
 
-The team divided the calculator into separate feature areas to allow each member to work independently while following a shared agreement.
+- [ ] All four arithmetic operations work correctly.
+- [ ] Decimal input works and duplicate decimal points are prevented.
+- [ ] Chained calculations produce the expected results.
+- [ ] Pressing equals without a complete operation does not cause errors.
+- [ ] Clear resets the display and stored calculation values.
+- [ ] Backspace removes the last character correctly.
+- [ ] Division by zero displays an error message.
+- [ ] Long decimal results remain readable.
+- [ ] Mouse and keyboard controls work as expected.
+- [ ] The calculator remains usable at different screen sizes.
 
-- Each team member developed and tested their assigned features.
-- Shared calculator state was defined in `shared.js` to keep the calculator's data consistent.
-- JavaScript functionality was separated into dedicated files to reduce overlap between team members' work.
-- The team used Git and GitHub branches to manage individual contributions, review changes, and integrate features.
-- The HTML, CSS, and JavaScript were coordinated to ensure that all features worked together as one calculator.
+## 🤝 Collaboration workflow
 
-## How to Run the Project
+The team followed a feature-based workflow to divide the work and minimise conflicts. Each developer worked on their assigned features using Git branches, while shared files and function names were coordinated through the team agreement.
 
-1. Clone or download the project repository.
-2. Open the project folder in Visual Studio Code.
-3. Open `index.html` in a web browser.
-4. Use the on-screen buttons or supported keyboard keys to perform calculations.
+The public functions provided the connections between the different parts of the calculator. This allowed the team to develop number input, arithmetic operations, and calculator controls separately before integrating and testing the complete application.
 
+## 📚 Course context
 
+**Mayerfeld Consulting — AI-Assisted Frontend Developer Practicum**
 
-##
+**October 2026 | JavaScript Calculator Assignment**
+
+This educational team project was created to practise JavaScript fundamentals, interface development, debugging, feature ownership, and collaborative software development.
+
+---
+
+*Every calculation has a result. Every bug has a lesson. And every developer eventually learns to test division by zero.* 🧮
+
 
