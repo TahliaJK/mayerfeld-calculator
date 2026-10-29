@@ -162,3 +162,7 @@ section {
 #calculator-buttons button[data-action="equals"]:hover:not(:disabled) {
   background: #14532d;
 }
+
+#display {
+    white-space: pre-line;
+}
